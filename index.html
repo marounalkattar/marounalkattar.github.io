@@ -352,18 +352,55 @@
 
 
     <!-- --------------------------- Footer ---------------------------------------- -->
-
-    <footer class="footer">
-
-        <div class="rights flex-row">
-            <h4 class="text-gray">
-            
-            </h4>
+    <section class="home">
+        <div class="container">
+           <div class="row">
+               <div class="home-text">
+                    <h1>How can I protect myself from Covid-19?</h1>
+                    <p class="animate-text">
+                       <span>CREATE PROBLEMS </span>
+                       <span>SOLVE PROBLEMS </span>
+                      
+                    </p>
+               </div>
+           </div>
         </div>
-        <div class="move-up">
-            <span><i class="fas fa-arrow-circle-up fa-2x"></i></span>
-        </div>
-    </footer>
+    </section>
+
+
+    
+<script>
+    const txts=document.querySelector(".animate-text").children,
+          txtsLen=txts.length;
+      let index=0;
+     const textInTimer=3000,
+           textOutTimer=2800;
+
+    function animateText() {
+       for(let i=0; i<txtsLen; i++){
+         txts[i].classList.remove("text-in","text-out");  
+       }
+       txts[index].classList.add("text-in");
+
+       setTimeout(function(){
+           txts[index].classList.add("text-out");              
+       },textOutTimer)
+
+       setTimeout(function(){
+
+         if(index == txtsLen-1){
+             index=0;
+           }
+          else{
+              index++;
+            }
+           animateText();
+       },textInTimer); 
+    }
+    
+    window.onload=animateText;
+
+</script>
 
     <!-- -------------x------------- Footer --------------------x------------------- -->
 
